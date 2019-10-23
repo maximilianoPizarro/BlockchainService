@@ -1,0 +1,37 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.blockchain.app"
+    },
+    "jhipsterVersion": "6.4.1",
+    "applicationType": "microservice",
+    "baseName": "BlockchainService",
+    "packageName": "com.blockchain.app",
+    "packageFolder": "com/blockchain/app",
+    "serverPort": "8081",
+    "authenticationType": "jwt",
+    "cacheProvider": "hazelcast",
+    "enableHibernateCache": false,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Memory",
+    "prodDatabaseType": "mariadb",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "NmFkMDFjOTU4YWNhMGVkZTk4MWU4ODE2NTZlZGRiNjhmMTk1NWYwMTUxOTg1YjFjOGU5ZmE0MmM3MDFiOTA1OWY3M2QwOWQwYzExMDFjNTg4YmE3MDI3NWJkMmExYmZlZTNkODJiYmIwMGUzNDNlMmM1NzY4OTcxOGUzYzM0NGY=",
+    "embeddableLaunchScript": false,
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": false,
+    "clientPackageManager": "npm",
+    "blueprints": [],
+    "skipClient": true,
+    "skipUserManagement": true
+  }
+}
