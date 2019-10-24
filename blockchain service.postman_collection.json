@@ -1,0 +1,166 @@
+{
+	"info": {
+		"_postman_id": "300c8c00-8721-4d58-9156-cea593fac54a",
+		"name": "blockchain service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "tsa stamp",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/services/BlockchainService/api/tsa/stamp?metadata=Blockchain",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"services",
+						"BlockchainService",
+						"api",
+						"tsa",
+						"stamp"
+					],
+					"query": [
+						{
+							"key": "metadata",
+							"value": "Blockchain"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "tsa2 stamp",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/services/BlockchainService/api/tsa2/stamp?metadata=Blockchain",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"services",
+						"BlockchainService",
+						"api",
+						"tsa2",
+						"stamp"
+					],
+					"query": [
+						{
+							"key": "metadata",
+							"value": "Blockchain"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "tsa stamp multipartfile",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "multipartfile",
+							"type": "file",
+							"src": "/C:/Users/desarrollo-ssd/Desktop/Captura_de_pantalla_2019-05-22_a_la_28s_29_12.27.31.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8081/services/BlockchainService/api/tsa/stamp/multipartfile/?",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"services",
+						"BlockchainService",
+						"api",
+						"tsa",
+						"stamp",
+						"multipartfile",
+						""
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "tsa2 stamp multipartfile",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "multipartfile",
+							"type": "file",
+							"src": "/C:/Users/desarrollo-ssd/Desktop/Captura_de_pantalla_2019-05-22_a_la_28s_29_12.27.31.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8081/services/BlockchainService/api/tsa2/stamp/multipartfile/?",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"services",
+						"BlockchainService",
+						"api",
+						"tsa2",
+						"stamp",
+						"multipartfile",
+						""
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
