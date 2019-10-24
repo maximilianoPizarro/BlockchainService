@@ -5,6 +5,7 @@ import com.blockchain.app.domain.StampVerify2;
 import com.blockchain.app.domain.StampVerifyResponse;
 
 import org.apache.http.ParseException;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
@@ -23,7 +24,7 @@ public interface BlockchainService {
     public String hashDocumento(String documento) throws UnsupportedEncodingException;
     
     //Genera un hash a partir de un archivo
-    public String hashFile(File file)throws IOException;
+    public String hashFile(MultipartFile multipartfile)throws IOException;
 
     //TSA
     public StampResponse altaBloque(String hash) throws UnsupportedEncodingException, ParseException, IOException;

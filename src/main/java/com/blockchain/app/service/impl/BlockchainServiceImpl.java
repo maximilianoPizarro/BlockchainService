@@ -6,6 +6,7 @@ import java.io.UnsupportedEncodingException;
 import java.nio.file.Files;
 import java.util.List;
 
+import org.apache.commons.io.FilenameUtils;
 import org.apache.http.HttpResponse;
 import org.apache.http.ParseException;
 import org.apache.http.client.HttpClient;
@@ -23,6 +24,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.blockchain.app.domain.Stamp;
 import com.blockchain.app.domain.Stamp2;
@@ -68,12 +70,11 @@ public class BlockchainServiceImpl implements BlockchainService {
 		String string = Hashing.sha256().hashBytes(data).toString();
 		log.debug("SHA256 generado = [" + string + "]");
 		return string;
-
 	}
+	
 	@Override
-	public String hashFile(File file) throws IOException {
-		byte data[] = Files.readAllBytes(file.toPath());
-		String string = Hashing.sha256().hashBytes(data).toString();
+	public String hashFile(MultipartFile multipartfile) throws IOException {
+		String string = Hashing.sha256().hashBytes(multipartfile.getBytes()).toString();
 		log.debug("SHA256 pdf generado = [" + string + "]");
 		return string;
 
