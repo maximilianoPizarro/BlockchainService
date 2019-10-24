@@ -10,7 +10,7 @@ https://github.com/maximilianoPizarro/BlockchainService/blob/master/INSTALL.md
 
 Postman Collection
 
-https://github.com/maximilianoPizarro/BlockchainService/blob/master/blockchain service.postman_collection
+https://github.com/maximilianoPizarro/BlockchainService/blob/master/blockchain%20service.postman_collection.json
 
 Endpoint ApiRest
 
