@@ -1,13 +1,13 @@
 package com.blockchain.app.web.rest;
 
-import java.io.File;
+
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 
 import com.blockchain.app.domain.StampResponse;
 import com.blockchain.app.service.BlockchainService;
 
-import org.apache.commons.io.FilenameUtils;
+
 import org.apache.http.ParseException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("/api")
 public class BlockchainResource {
 
     private final Logger log = LoggerFactory.getLogger(BlockchainResource.class);
