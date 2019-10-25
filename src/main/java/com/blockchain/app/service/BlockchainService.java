@@ -11,6 +11,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Servicios consumir tsa y tsa2 api de Blockchain Federal Argentina.
@@ -25,7 +26,7 @@ public interface BlockchainService {
     
     //Genera un hash a partir de un archivo
     public String hashFile(MultipartFile multipartfile)throws IOException;
-
+    
     //TSA
     public StampResponse altaBloque(String hash) throws UnsupportedEncodingException, ParseException, IOException;
     

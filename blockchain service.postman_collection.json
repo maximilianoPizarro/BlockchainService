@@ -6,7 +6,7 @@
 	},
 	"item": [
 		{
-			"name": "tsa stamp",
+			"name": "TSA Stamp",
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -30,12 +30,13 @@
 							"value": "Blockchain"
 						}
 					]
-				}
+				},
+				"description": "Endpoint from consume https://tsaapi.bfa.ar/api/tsa/stamp/\n\nRequestParm String metadata (this service generate sha256)\n\nResponse \n\n{\n  \"status\": \"success\",\n  \"temporary_rd\": \"MHgtOTUwMzQ3N2NkNDkyNjI4MDM1MzA3NThiZGIzZTA4NGYxM2MwMzdiZWU2MzZkMTg0MTRlZjI5Mzk5MzdkYzZjMzAxLTB4ODNmZDgxNzM3M2I5NjEzYTg1MWQ1ODNlZGJhYTg1NzRmYjE2MzQwODIyZjUxODA4MzI0OWM2YTNjMDlkNmE1OQ==\"\n}"
 			},
 			"response": []
 		},
 		{
-			"name": "tsa2 stamp",
+			"name": "TSA2 Stamp",
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -59,12 +60,13 @@
 							"value": "Blockchain"
 						}
 					]
-				}
+				},
+				"description": "Endpoint from consume https://tsa2.buenosaires.gob.ar/stamp\n\nRequestParm String metadata (this service generate sha256)\n\nResponse \n\n{\n  \"status\": 200\n}"
 			},
 			"response": []
 		},
 		{
-			"name": "tsa stamp multipartfile",
+			"name": "TSA Stamp MultipartFile",
 			"request": {
 				"method": "POST",
 				"header": [
@@ -82,6 +84,12 @@
 							"key": "multipartfile",
 							"type": "file",
 							"src": "/C:/Users/desarrollo-ssd/Desktop/Captura_de_pantalla_2019-05-22_a_la_28s_29_12.27.31.png"
+						},
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
 						}
 					]
 				},
@@ -108,12 +116,13 @@
 							"disabled": true
 						}
 					]
-				}
+				},
+				"description": "Endpoint from consume https://tsaapi.bfa.ar/api/tsa/stamp/\n\nMultipartFile (this service generate sha256)\n\nResponse \n\n{\n  \"status\": \"success\",\n  \"temporary_rd\": \"MHgtOTUwMzQ3N2NkNDkyNjI4MDM1MzA3NThiZGIzZTA4NGYxM2MwMzdiZWU2MzZkMTg0MTRlZjI5Mzk5MzdkYzZjMzAxLTB4ODNmZDgxNzM3M2I5NjEzYTg1MWQ1ODNlZGJhYTg1NzRmYjE2MzQwODIyZjUxODA4MzI0OWM2YTNjMDlkNmE1OQ==\"\n}"
 			},
 			"response": []
 		},
 		{
-			"name": "tsa2 stamp multipartfile",
+			"name": "TSA2 Stamp MultipartFile",
 			"request": {
 				"method": "POST",
 				"header": [
@@ -157,7 +166,97 @@
 							"disabled": true
 						}
 					]
-				}
+				},
+				"description": "Endpoint from consume https://tsa2.buenosaires.gob.ar/stamp\n\nMultipartFile (this service generate sha256)\n\nResponse \n\n{\n  \"status\": 200\n}"
+			},
+			"response": []
+		},
+		{
+			"name": "Hash by RequestParam",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8081/services/BlockchainService/api/hash/sha256?metadata=Blockchain",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"services",
+						"BlockchainService",
+						"api",
+						"hash",
+						"sha256"
+					],
+					"query": [
+						{
+							"key": "metadata",
+							"value": "Blockchain"
+						}
+					]
+				},
+				"description": "Endpoint from generate SHA256 from RequestParam String metadata"
+			},
+			"response": []
+		},
+		{
+			"name": "Hash by MultipartFile",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "multipartfile",
+							"type": "file",
+							"src": "/C:/Users/desarrollo-ssd/Desktop/Captura_de_pantalla_2019-05-22_a_la_28s_29_12.27.31.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8081/services/BlockchainService/api/hash/sha256/multipartfile?",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"services",
+						"BlockchainService",
+						"api",
+						"hash",
+						"sha256",
+						"multipartfile"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Endpoint from generate SHA256 from MultipartFile"
 			},
 			"response": []
 		}

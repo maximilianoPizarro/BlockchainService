@@ -2,6 +2,7 @@ package com.blockchain.app.web.rest;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.util.Optional;
 import java.util.AbstractMap.SimpleEntry;
 
 import com.blockchain.app.domain.StampResponse;
@@ -12,6 +13,7 @@ import org.apache.http.ParseException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -29,6 +31,9 @@ public class BlockchainResource {
     public BlockchainResource(BlockchainService blockchainService) {
         this.blockchainService = blockchainService;
     }
+
+
+
     
 	/**
 	 * POST /tsa/stamp : Stamp Metadata tsa1
@@ -75,15 +80,14 @@ public class BlockchainResource {
 	 */
     
     @PostMapping("/tsa2/stamp")
-    public ResponseEntity<String> tsangStamp(@RequestParam("metadata") String metadata)
+    public ResponseEntity<SimpleEntry> tsangStamp(@RequestParam("metadata") String metadata)
             throws UnsupportedEncodingException, ParseException, IOException {
             log.debug("Stamp Metadata TSA = "+metadata);
-            SimpleEntry<String,Integer > response = new SimpleEntry<String, Integer> ("status",blockchainService.altaBloqueTsaNG(blockchainService.hashDocumento(metadata)));
-        return ResponseEntity.ok().body(new Gson().toJson(response));
+        return ResponseEntity.ok().body(new SimpleEntry<String, Integer> ("status",blockchainService.altaBloqueTsaNG(blockchainService.hashDocumento(metadata))));
     }
 
     /**
-	 * POST /tsa/stamp/multipartfile : Stamp MultipartFile tsa1
+	 * POST /tsa2/stamp/multipartfile : Stamp MultipartFile tsa1
 	 *
 	 * @param MultipartFile multipartfile
 	 * @return StampResponse
@@ -93,10 +97,43 @@ public class BlockchainResource {
 	 */
 
     @PostMapping("/tsa2/stamp/multipartfile")
-    public ResponseEntity<String> tsangStamp(MultipartFile multipartfile)
+    public ResponseEntity<SimpleEntry> tsangStamp(MultipartFile multipartfile)
             throws UnsupportedEncodingException, ParseException, IOException {
-            log.debug("Stamp File TSA = "+multipartfile.getOriginalFilename());
-            SimpleEntry<String,Integer > response = new SimpleEntry<String, Integer> ("status",blockchainService.altaBloqueTsaNG(blockchainService.hashFile(multipartfile)));
-        return ResponseEntity.ok().body(new Gson().toJson(response));
+            log.debug("Stamp File TSA = "+multipartfile.getOriginalFilename());            
+        return ResponseEntity.ok().body(new SimpleEntry<String, Integer> ("status",blockchainService.altaBloqueTsaNG(blockchainService.hashFile(multipartfile))));
+    }
+
+    /**
+	 * GET /hash/sha256 : Hash RequestParam
+	 *
+	 * @param String metadata
+	 * @return SimpleEntry
+	 * @throws UnsupportedEncodingException
+	 * @throws ParseException
+	 * @throws IOException
+	 */
+
+    @GetMapping("/hash/sha256")
+    public ResponseEntity<SimpleEntry> hash(@RequestParam("metadata") String metadata)
+            throws UnsupportedEncodingException, ParseException, IOException {
+            log.debug("Generando SHA256 ");            
+        return ResponseEntity.ok().body(new SimpleEntry<String, String> ("hash",blockchainService.hashDocumento(metadata)));
+    }
+
+    /**
+	 * GET /hash/sha256/multipartfile : Hash MultipartFile
+	 *
+     * @param MultipartFile multipartfile
+	 * @return SimpleEntry
+	 * @throws UnsupportedEncodingException
+	 * @throws ParseException
+	 * @throws IOException
+	 */
+
+    @GetMapping("/hash/sha256/multipartfile")
+    public ResponseEntity<SimpleEntry> hashMultipartFile(MultipartFile multipartfile)
+            throws UnsupportedEncodingException, ParseException, IOException {
+            log.debug("Generando SHA256 ");            
+        return ResponseEntity.ok().body(new SimpleEntry<String, String> ("hash",blockchainService.hashFile(multipartfile)));
     }
 }

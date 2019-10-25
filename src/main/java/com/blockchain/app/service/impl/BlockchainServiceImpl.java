@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.nio.file.Files;
 import java.util.List;
+import java.util.Optional;
 
 import org.apache.commons.io.FilenameUtils;
 import org.apache.http.HttpResponse;
@@ -77,6 +78,7 @@ public class BlockchainServiceImpl implements BlockchainService {
 		log.debug("SHA256 pdf generado = [" + string + "]");
 		return string;
 	}
+
 
 	// TSA
 	@Override
