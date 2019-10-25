@@ -5,6 +5,9 @@ import java.io.UnsupportedEncodingException;
 import java.util.AbstractMap.SimpleEntry;
 
 import com.blockchain.app.domain.StampResponse;
+import com.blockchain.app.domain.StampVerify2;
+import com.blockchain.app.domain.StampVerifyResponse;
+import com.blockchain.app.domain.StampVerifyResponse2;
 import com.blockchain.app.service.BlockchainService;
 
 import org.apache.http.ParseException;
@@ -96,6 +99,41 @@ public class BlockchainResource {
             log.debug("Stamp File TSA = "+multipartfile.getOriginalFilename());            
         return ResponseEntity.ok().body(new SimpleEntry<String, Integer> ("status",blockchainService.altaBloqueTsaNG(blockchainService.hashFile(multipartfile))));
     }
+
+    /**
+	 * GET /tsa/verify : Hash & Rd temporary
+	 *
+	 * @param String hash
+     * @param String Rd Temporary
+	 * @return StampVerifyResponse
+	 * @throws UnsupportedEncodingException
+	 * @throws ParseException
+	 * @throws IOException
+	 */
+    @GetMapping("/tsa/verify")
+    public ResponseEntity<StampVerifyResponse> tsaVerify(@RequestParam("hash") String hash,@RequestParam("rd") String rd)
+            throws UnsupportedEncodingException, ParseException, IOException {
+            log.debug("Verify Hash ="+hash +" , RD="+rd);
+        return ResponseEntity.ok().body(blockchainService.verificarBloque(hash, rd));
+    }
+
+    /**
+	 * GET /tsa2/verify : Hash
+	 *
+	 * @param String hash
+     * @param String Rd Temporary
+	 * @return StampVerifyResponse
+	 * @throws UnsupportedEncodingException
+	 * @throws ParseException
+	 * @throws IOException
+	 */
+    @GetMapping("/tsa2/verify")
+    public ResponseEntity<StampVerify2> tsa2Verify(@RequestParam("hash") String hash)
+            throws UnsupportedEncodingException, ParseException, IOException {
+            log.debug("Verify Hash ="+hash);
+        return ResponseEntity.ok().body(blockchainService.verificarBloqueTsaNg(hash));
+    }
+
 
     /**
 	 * GET /hash/sha256 : Hash RequestParam

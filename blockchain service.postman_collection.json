@@ -204,7 +204,7 @@
 						}
 					]
 				},
-				"description": "Endpoint from generate SHA256 from RequestParam String metadata"
+				"description": "Endpoint from generate SHA256 to RequestParam String metadata"
 			},
 			"response": []
 		},
@@ -257,6 +257,117 @@
 					]
 				},
 				"description": "Endpoint from generate SHA256 from MultipartFile"
+			},
+			"response": []
+		},
+		{
+			"name": "TSA Verify",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "",
+							"type": "file",
+							"src": [],
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8081/services/BlockchainService/api/tsa/verify?hash=625da44e4eaf58d61cf048d168aa6f5e492dea166d8bb54ec06c30de07db57e1&rd=MHgtYTQxMTU0OGYwZWNkYWZiMWMzNWQ2MjM0YWZkMjZkMWE5YTU1Yzc0MDBhNjM4OTI1OGJjMDc4N2NhNjkzOTE5ZjAxLTB4NzdmMjY2ZWIzOTg1Y2ExNjdjOGYwNDY0MGU4NTc2YjM1YmU4ZjU4YTc2YTEyZmUxMGI3YzU0ZTcyOGM3OTg4Yw==",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"services",
+						"BlockchainService",
+						"api",
+						"tsa",
+						"verify"
+					],
+					"query": [
+						{
+							"key": "hash",
+							"value": "625da44e4eaf58d61cf048d168aa6f5e492dea166d8bb54ec06c30de07db57e1"
+						},
+						{
+							"key": "rd",
+							"value": "MHgtYTQxMTU0OGYwZWNkYWZiMWMzNWQ2MjM0YWZkMjZkMWE5YTU1Yzc0MDBhNjM4OTI1OGJjMDc4N2NhNjkzOTE5ZjAxLTB4NzdmMjY2ZWIzOTg1Y2ExNjdjOGYwNDY0MGU4NTc2YjM1YmU4ZjU4YTc2YTEyZmUxMGI3YzU0ZTcyOGM3OTg4Yw=="
+						}
+					]
+				},
+				"description": "Endpoint from verify hash\n\nRequestParam Hash & RD\n\nResponse Pending\n\n{\n  \"status\": \"pending\",\n  \"permanent_rd\": null,\n  \"messages\": \"La transacción se encuentra pendiente de subida a la Blockchain\",\n  \"attestation_time\": null,\n  \"ok\": false\n}\n\nResponse Success\n\n{\n  \"status\": \"success\",\n  \"permanent_rd\": \"MXgtNjI1ZGE0NGU0ZWFmNThkNjFjZjA0OGQxNjhhYTZmNWU0OTJkZWExNjZkOGJiNTRlYzA2YzMwZGUwN2RiNTdlMS1hNDExNTQ4ZjBlY2RhZmIxYzM1ZDYyMzRhZmQyNmQxYTlhNTVjNzQwMGE2Mzg5MjU4YmMwNzg3Y2E2OTM5MTlmMDEtMHg3N2YyNjZlYjM5ODVjYTE2N2M4ZjA0NjQwZTg1NzZiMzViZThmNThhNzZhMTJmZTEwYjdjNTRlNzI4Yzc5ODhjLTY3NjU3ODM=\",\n  \"messages\": \"El archivo 625da44e4eaf58d61cf048d168aa6f5e492dea166d8bb54ec06c30de07db57e1 fue ingresado en el bloque 6765783 el 25/10/2019 16:34:05\",\n  \"attestation_time\": \"25/10/2019 16:34:05\",\n  \"ok\": true\n}"
+			},
+			"response": []
+		},
+		{
+			"name": "TSA2 Verify",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "",
+							"type": "file",
+							"src": [],
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8081/services/BlockchainService/api/tsa2/verify?hash=625da44e4eaf58d61cf048d168aa6f5e492dea166d8bb54ec06c30de07db57e1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"services",
+						"BlockchainService",
+						"api",
+						"tsa2",
+						"verify"
+					],
+					"query": [
+						{
+							"key": "hash",
+							"value": "625da44e4eaf58d61cf048d168aa6f5e492dea166d8bb54ec06c30de07db57e1"
+						},
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Endpoint from verify hash\n\nRequestParam Hash\n\nResponse Success\n\n{\n  \"stamped\": true,\n  \"stamps\": [\n    {\n      \"whostamped\": \"0x08328a39f3c90C2f748610d0988a709E20Da5988\",\n      \"blocknumber\": \"6748964\",\n      \"blocktimestamp\": \"1571947928\"\n    }\n  ]\n}"
 			},
 			"response": []
 		}
