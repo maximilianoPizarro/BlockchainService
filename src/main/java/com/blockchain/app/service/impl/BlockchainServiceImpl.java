@@ -136,7 +136,6 @@ public class BlockchainServiceImpl implements BlockchainService {
 		} else {
 			return 400;
 		}
-
 	}
 
 	@Override
