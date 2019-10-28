@@ -160,11 +160,11 @@ jhipster:
     description: BlockchainService API documentation
     version: 0.0.1
     terms-of-service-url:
-    contact-name:
+    contact-name: Maximiliano Pizarro
     contact-url:
-    contact-email:
+    contact-email: maximiliano.pizarro.5@gmail.com
     license:
-    license-url:
+    license-url: https://raw.githubusercontent.com/maximilianoPizarro/BlockchainService/master/License?token=ADJYHONRLK47CYPTZJYSHOS5W4CGU
 # ===================================================================
 # Application specific properties
 # Add your own application properties here, see the ApplicationProperties class
