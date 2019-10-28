@@ -17,6 +17,10 @@ Properties ApiRest
 
 https://github.com/maximilianoPizarro/BlockchainService/blob/master/src/main/resources/config/application.yml
 
+Herokuapp example
+
+https://blockchain-jhipster.herokuapp.com/services/BlockchainService/v2/api-docs
+
 Repositorio Oficial BFA
 
 https://gitlab.bfa.ar/blockchain
